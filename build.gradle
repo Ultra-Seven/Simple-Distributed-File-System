@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) Jipzingking 2016.
+ */
+
+apply plugin: 'java'
+
+buildscript {
+    ext.kotlin_version = '1.0.3'
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+    buildscript {
+        repositories {
+            jcenter()
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14'
+    distributionUrl = distributionUrl.replace("bin", "all")
+}
